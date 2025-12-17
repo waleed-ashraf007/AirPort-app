@@ -60,37 +60,113 @@ def create_flight_schedule_pdf(data):
 # 2. Streamlit UI Functions
 # -------------------------------------------------------------------
 
-
+# -------------------------------------------------------------------
+# UI Styling & Background
+# -------------------------------------------------------------------
 
 def set_background_image():
-    """Injects CSS to set a background image and stylize the app."""
-    # --- ADD THE NEW URL HERE ---
+    """Injects CSS to set a background image, colors, and team section."""
     BACKGROUND_IMAGE_URL = "https://images.unsplash.com/photo-1542296332-2e4473faf563?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YWlycG9ydHxlbnwwfHwwfHx8MA%3D%3D"
-    # -----------------------------
     
     st.markdown(
         f"""
         <style>
         .stApp {{
-            background-image: url("{BACKGROUND_IMAGE_URL}"); /* Use the provided URL */
+            background-image: url("{BACKGROUND_IMAGE_URL}");
             background-size: cover;
-            background-attachment: fixed; 
-            opacity: 0.9;
+            background-attachment: fixed;
         }}
-        /* Make the main content area slightly transparent white for text clarity */
+
+        /* Main content */
         .main > div {{
-            background-color: rgba(255, 255, 255, 0.95); 
-            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 20px;
             border-radius: 10px;
+            color: black;
         }}
-        /* Make the sidebar slightly transparent grey */
+
+        /* Headers */
+        h1, h2, h3, h4, h5 {{
+            color: black;
+        }}
+
+        /* Sidebar */
         [data-testid="stSidebar"] {{
-            background-color: rgba(200, 200, 200, 0.85); 
+            background-color: rgba(200, 200, 200, 0.85);
+        }}
+
+        /* Team names bottom-right */
+        .team-box {{
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: rgba(255, 255, 255, 0.92);
+            padding: 14px 18px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #0B3C5D; /* Dark Blue */
+            box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+            z-index: 9999;
         }}
         </style>
         """,
         unsafe_allow_html=True
     )
+
+
+# -------------------------------------------------------------------
+# App Entry Point
+# -------------------------------------------------------------------
+
+st.set_page_config(layout="wide", page_title="Airport Management Dashboard")
+st.title("✈️ Online Airport System")
+
+set_background_image()
+
+# Team Members (Bottom Right)
+st.markdown(
+    """
+    <div class="team-box">
+        <div>Waleed Ashraf</div>
+        <div>Bishoy Botros</div>
+        <div>Omar Ismail</div>
+        <div>Meriam Tamer</div>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
+
+# def set_background_image():
+#     """Injects CSS to set a background image and stylize the app."""
+#     # --- ADD THE NEW URL HERE ---
+#     BACKGROUND_IMAGE_URL = "https://images.unsplash.com/photo-1542296332-2e4473faf563?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YWlycG9ydHxlbnwwfHwwfHx8MA%3D%3D"
+#     # -----------------------------
+    
+#     st.markdown(
+#         f"""
+#         <style>
+#         .stApp {{
+#             background-image: url("{BACKGROUND_IMAGE_URL}"); /* Use the provided URL */
+#             background-size: cover;
+#             background-attachment: fixed; 
+#             opacity: 0.9;
+#         }}
+#         /* Make the main content area slightly transparent white for text clarity */
+#         .main > div {{
+#             background-color: rgba(255, 255, 255, 0.95); 
+#             padding: 10px;
+#             border-radius: 10px;
+#         }}
+#         /* Make the sidebar slightly transparent grey */
+#         [data-testid="stSidebar"] {{
+#             background-color: rgba(200, 200, 200, 0.85); 
+#         }}
+#         </style>
+#         """,
+#         unsafe_allow_html=True
+#     )
 def show_login_page():
     """Displays the login form."""
     st.sidebar.header("Login")
@@ -168,7 +244,7 @@ def show_dashboard():
 
 # Set up the Streamlit page
 st.set_page_config(layout="wide", page_title="Airport Management Dashboard")
-st.title("✈️ Online Airport System ")
+st.title("Happy to Serve")
 set_background_image()
 
 # Initialize Session State
@@ -182,3 +258,4 @@ if st.session_state['logged_in']:
     show_dashboard()
 else:
     show_login_page()
+
