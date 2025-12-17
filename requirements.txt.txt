@@ -1,0 +1,10 @@
+streamlit
+
+
+pandas
+
+
+supabase
+
+
+reportlab
