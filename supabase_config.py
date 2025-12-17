@@ -23,7 +23,7 @@ supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 # -------------------------------------------------------------------
 
 def get_all_flights():
-    """Retrieves all flight records."""
+ 
     try:
         response = supabase.table('Flight').select('*').execute()
         return response.data
@@ -32,7 +32,7 @@ def get_all_flights():
         return []
 
 def get_maintenance_summary():
-    """Retrieves Maintenance records, ordered by status."""
+ 
     try:
         response = (
             supabase.table('Maintenance')
@@ -46,10 +46,10 @@ def get_maintenance_summary():
         return []
 
 def call_login_procedure(email: str, password: str, role: str):
-    """
+    
     Calls one of the stored login functions (e.g., sp_loginadmin) 
     via Supabase's Remote Procedure Call (RPC).
-    """
+    
     
     # Use lowercase naming for the RPC name as required by PostgreSQL/Supabase
     procedure_name = f'sp_login{role}'.lower() 
@@ -106,7 +106,7 @@ supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 # -------------------------------------------------------------------
 
 def get_all_flights():
-    """Retrieves all flight records."""
+    
     try:
         response = supabase.table('Flight').select('*').execute()
         return response.data
@@ -115,7 +115,7 @@ def get_all_flights():
         return []
 
 def get_maintenance_summary():
-    """Retrieves Maintenance records, ordered by status."""
+   
     try:
         response = (
             supabase.table('Maintenance')
@@ -164,5 +164,5 @@ if __name__ == "__main__":
     if call_login_procedure('hassan.admin@example.com', 'admin123', 'Admin'):
         print("Success: Admin login test passed.")
     else:
->>>>>>> 4cc418048101a14e48cb2fc3e7ec23ed556a6702
+        4cc418048101a14e48cb2fc3e7ec23ed556a6702
         print("Failure: Admin login test failed.")
