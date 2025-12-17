@@ -1,10 +1,18 @@
 from supabase import create_client, Client
 import pandas as pd
-import streamlit as st
-# --- 1. Your Supabase Credentials ---
-SUPABASE_URL = st.secrets["https://plzxqenyxmawwfmkwcqs.supabase.co"]
-SUPABASE_KEY = st.secrets["eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBsenhxZW55eG1hd3dmbWt3Y3FzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU5MDY1MTgsImV4cCI6MjA4MTQ4MjUxOH0.IfzrS0NMrKoRzqqhwzcr2uOnwGvxtrvkRzvL7WDULYM"]
-# Ensure the key is correct for your project
+import streamlit as st # <-- ADD THIS LINE BACK
+
+# --- 1. Your Supabase Credentials (SECURELY LOADED) ---
+# Load keys securely from .streamlit/secrets.toml
+# supabase_config.py
+
+
+
+# Corrected lines: Use the KEY names defined in secrets.toml
+SUPABASE_URL = st.secrets["SUPABASE_URL"]
+SUPABASE_KEY = st.secrets["SUPABASE_KEY"] 
+
+# ... rest of the file ...
 
 # Initialize the Supabase Client
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
