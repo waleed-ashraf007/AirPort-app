@@ -1,6 +1,6 @@
 from supabase import create_client, Client
 import pandas as pd
-import streamlit as st
+
 # --- 1. Your Supabase Credentials ---
 SUPABASE_URL = "https://plzxqenyxmawwfmkwcqs.supabase.co"
 SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBsenhxZW55eG1hd3dmbWt3Y3FzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU5MDY1MTgsImV4cCI6MjA4MTQ4MjUxOH0.IfzrS0NMrKoRzqqhwzcr2uOnwGvxtrvkRzvL7WDULYM"
