@@ -3,3 +3,4 @@ streamlit
 pandas
 supabase
 reportlab
+supabase==1.0.3
