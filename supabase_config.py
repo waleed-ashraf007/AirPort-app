@@ -4,8 +4,8 @@ import streamlit as st # <-- ADD THIS LINE BACK
 
 # --- 1. Your Supabase Credentials (SECURELY LOADED) ---
 # Load keys securely from .streamlit/secrets.toml
-SUPABASE_URL = st.secrets["SUPABASE_URL"]
-SUPABASE_KEY = st.secrets["SUPABASE_KEY"]
+SUPABASE_URL = st.secrets["https://plzxqenyxmawwfmkwcqs.supabase.co"]
+SUPABASE_KEY = st.secrets["eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBsenhxZW55eG1hd3dmbWt3Y3FzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU5MDY1MTgsImV4cCI6MjA4MTQ4MjUxOH0.IfzrS0NMrKoRzqqhwzcr2uOnwGvxtrvkRzvL7WDULYM"]
 
 # Initialize the Supabase Client
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
