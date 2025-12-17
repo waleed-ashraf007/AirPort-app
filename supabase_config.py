@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from supabase import create_client, Client
 import pandas as pd
 import streamlit as st # <-- ADD THIS LINE BACK
